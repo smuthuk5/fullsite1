@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"/><meta name="viewport" content="width=device-width,initial-scale=1"/><title>Tiller – PSM PPT</title><link rel="stylesheet" href="main.css"></head><body>
+<header class="site-header"><div class="container header-flex"><div class="brand"><a href="index.html"><img src="images/logo.png" alt="logo"></a><div class="brand-title"><div class="title">Pulse Service Masters</div><div class="subtitle">Sales • Servicing • Spare Parts</div></div></div><nav class="main-nav"><ul class="nav-list"><li><a href="index.html">Home</a></li><li><a href="products.html">Products</a></li><li><a href="contact.html">Contact</a></li></ul></nav></div></header>
+
+<div class="container">
+  <section class="product-page">
+    <div style="display:flex;gap:24px;flex-wrap:wrap;align-items:flex-start;">
+      <div style="flex:0 0 420px;"><img src="images/Tiller – PSM PPT.jpg" alt="Tiller – PSM PPT" style="width:100%;border-radius:8px;box-shadow:0 4px 12px rgba(0,0,0,0.08)"></div>
+      <div style="flex:1;min-width:280px;">
+        <h1>Tiller – PSM PPT</h1>
+        <p class="lead">7hp PSM PPT tiller with 32 tynes and 800mm tilling width for efficient soil preparation.</p>
+
+        <div style="margin:12px 0;"><button id="show-price" style="padding:10px 16px;border-radius:8px;border:none;background:var(--psm-accent);color:white;font-weight:700;cursor:pointer;">Show Price</button></div>
+        <div id="price-block" style="display:none;margin-bottom:10px;">
+          <div class="price" data-base="48000">Price: ₹<span id="price-value">48000.00</span></div>
+          <div style="margin-top:8px;"><label style="display:inline-flex;align-items:center;gap:8px"><input type="checkbox" id="warranty" data-add="5000"> Add extended warranty (+₹5,000)</label></div>
+          <div style="margin-top:10px;"><button id="buy-now" class="carousel-next" style="background:var(--psm-accent);">Buy Now</button></div>
+        </div>
+
+        <h3>Key features</h3>
+        <ul>
+          <li>Engine Model: 70F — 4-stroke single cylinder</li>
+          <li>Engine Power: 7 hp</li>
+          <li>Tynes: 32 — Tilling width 800mm, depth ~100mm</li>
+          <li>Transmission: 1-0-2-R</li>
+        </ul>
+      </div>
+    </div>
+
+    <hr style="margin:20px 0">
+    <h2>Specifications</h2>
+    <table style="width:100%;border-collapse:collapse"><tbody>
+      <tr><td style="padding:6px 10px;border-bottom:1px solid #eee">Engine Displacement / Power</td><td style="padding:6px 10px;border-bottom:1px solid #eee">7 hp (70F)</td></tr>
+      <tr><td style="padding:6px 10px;border-bottom:1px solid #eee">Tynes</td><td style="padding:6px 10px;border-bottom:1px solid #eee">32</td></tr>
+      <tr><td style="padding:6px 10px;border-bottom:1px solid #eee">Transmission</td><td style="padding:6px 10px;border-bottom:1px solid #eee">1-0-2-R</td></tr>
+      <tr><td style="padding:6px 10px;border-bottom:1px solid #eee">Tilling width</td><td style="padding:6px 10px;border-bottom:1px solid #eee">800 mm</td></tr>
+      <tr><td style="padding:6px 10px;border-bottom:1px solid #eee">Tilling depth</td><td style="padding:6px 10px;border-bottom:1px solid #eee">~100 mm</td></tr>
+    </tbody></table>
+  </section>
+</div>
+
+<script>
+(function(){
+  const showBtn=document.getElementById('show-price'), priceBlock=document.getElementById('price-block'),
+        priceEl=document.getElementById('price-value'), priceWrap=document.querySelector('.price'),
+        warranty=document.getElementById('warranty'), buyNow=document.getElementById('buy-now');
+  const base=parseFloat(priceWrap && priceWrap.dataset.base ? priceWrap.dataset.base : 0);
+  function renderPrice(){ const add = warranty.checked ? parseFloat(warranty.dataset.add||0) : 0; priceEl.textContent=(base+add).toFixed(2); }
+  showBtn.addEventListener('click', ()=>{ priceBlock.style.display='block'; renderPrice(); showBtn.style.display='none'; });
+  warranty.addEventListener('change', renderPrice);
+  buyNow.addEventListener('click', ()=> location.href='contact.html');
+})();
+</script>
+</body></html>
